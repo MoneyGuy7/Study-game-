@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>WWI Study Quest — Chapter 5-1</title>
+<style>
+:root{--bg:#0b1020;--panel:#141d31;--panel2:#1b2740;--text:#f3f6ff;--muted:#aab6d0;--accent:#8b7cff;--good:#36d399;--bad:#fb7185;--line:#2b3855}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#1b2850 0%,var(--bg) 58%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:12px 16px;font-weight:750;transition:transform .12s,filter .12s}button:hover{filter:brightness(1.08);transform:translateY(-1px)}button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.wrap{width:min(900px,100%);margin:auto;padding:22px 16px 44px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}.brand{font-size:14px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:800}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 11px;color:var(--muted);font-size:12px}
+h1{font-size:clamp(32px,7vw,54px);line-height:1.03;letter-spacing:-.04em;margin:8px 0 14px}.subtitle{color:var(--muted);line-height:1.6;margin:0 0 26px}.screen{display:none}.screen.active{display:block}.panel{background:linear-gradient(160deg,rgba(27,39,64,.96),rgba(17,26,45,.96));border:1px solid var(--line);border-radius:22px;padding:clamp(18px,4vw,30px);box-shadow:0 18px 60px #0003}.category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:18px 0}.cat{background:var(--panel);color:var(--text);border:1px solid var(--line);text-align:left;padding:18px;min-height:125px}.cat .emoji{font-size:25px;display:block;margin-bottom:10px}.cat strong{display:block;font-size:16px}.cat small{display:block;color:var(--muted);margin-top:5px;font-weight:500}.primary{background:var(--accent);color:white}.secondary{background:#273552;color:var(--text);border:1px solid #3a4a6d}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.row>*{flex:1}.muted{color:var(--muted)}.tiny{font-size:13px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.stat{background:#0d1527;border:1px solid var(--line);padding:9px 12px;border-radius:12px;font-size:13px;color:var(--muted)}.stat b{color:var(--text)}.progress{height:8px;background:#0a1020;border-radius:999px;overflow:hidden;margin:10px 0 24px}.bar{height:100%;background:linear-gradient(90deg,var(--accent),#42d8d0);width:0%;transition:width .2s}.qmeta{color:#b9adff;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.1em}.question{font-size:clamp(22px,4vw,30px);line-height:1.25;margin:12px 0 22px;font-weight:800;letter-spacing:-.02em}.answers{display:grid;gap:10px}.answer{width:100%;text-align:left;background:#111a2c;color:var(--text);border:1px solid #34425e;padding:15px 16px;display:flex;gap:12px;align-items:center}.letter{display:inline-grid;place-items:center;width:29px;height:29px;flex:0 0 29px;border-radius:9px;background:#273552;color:#dbe4ff}.answer.correct{border-color:var(--good);background:#10352f}.answer.wrong{border-color:var(--bad);background:#3a1b2a}.answer:disabled{cursor:default;transform:none}.feedback{margin-top:16px;padding:13px 15px;border-radius:12px;display:none;line-height:1.5}.feedback.show{display:block}.feedback.good{background:#10352f;color:#b8ffe7}.feedback.bad{background:#3a1b2a;color:#ffd5dd}.quiz-footer{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:18px}.quiz-footer .muted{font-size:13px}.result{text-align:center}.score{font-size:64px;font-weight:900;letter-spacing:-.06em;margin:12px 0}.review{text-align:left;margin-top:24px}.review-item{padding:13px 0;border-bottom:1px solid var(--line)}.review-item:last-child{border:0}.review-item b{display:block;margin-bottom:5px}.hidden{display:none!important}
+@media(max-width:520px){.top{align-items:flex-start}.quiz-footer{align-items:stretch;flex-direction:column-reverse}.quiz-footer button{width:100%}.stats .stat{flex:1}.category-grid{grid-template-columns:1fr 1fr}.cat{padding:14px;min-height:118px}}@media(max-width:360px){.category-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><div class="brand">✦ Study Quest</div><div class="pill">HISTORY · CHAPTER 5-1</div></header>
+  <section id="home" class="screen active">
+    <div class="panel">
+      <div class="qmeta">War Breaks Out in Europe</div>
+      <h1>Know your WWI.<br>Own the test.</h1>
+      <p class="subtitle">Practice with multiple-choice questions based on your Chapter 5-1 study guide. Pick a category or take the full quiz with everything mixed together.</p>
+      <div class="row"><button class="primary" onclick="startQuiz('all')">⚡ Test me on everything</button><button class="secondary" onclick="startQuiz('all',true)">🔀 Mixed practice · 10 questions</button></div>
+      <h2 style="margin:28px 0 8px;font-size:18px">Choose a category</h2>
+      <div class="category-grid">
+        <button class="cat" onclick="startQuiz('vocab')"><span class="emoji">📚</span><strong>Vocabulary</strong><small>Key terms and definitions</small></button>
+        <button class="cat" onclick="startQuiz('people')"><span class="emoji">👤</span><strong>Important people</strong><small>Who’s who in WWI</small></button>
+        <button class="cat" onclick="startQuiz('countries')"><span class="emoji">🌍</span><strong>Countries & alliances</strong><small>Allied and Central Powers</small></button>
+        <button class="cat" onclick="startQuiz('causes')"><span class="emoji">💥</span><strong>Causes of the war</strong><small>Events and alliances</small></button>
+        <button class="cat" onclick="startQuiz('war')"><span class="emoji">🪖</span><strong>War & technology</strong><small>Trenches, weapons, stalemate</small></button>
+        <button class="cat" onclick="startQuiz('us')"><span class="emoji">🇺🇸</span><strong>United States enters</strong><small>Wilson and the road to war</small></button>
+      </div>
+      <p class="tiny muted">Instant feedback · Score tracking · Review missed questions · No account needed</p>
+    </div>
+  </section>
+  <section id="quiz" class="screen">
+    <div class="stats"><div class="stat">Question <b id="count">1 / 10</b></div><div class="stat">Correct <b id="correctCount">0</b></div><div class="stat">Streak <b id="streak">0 🔥</b></div></div>
+    <div class="progress"><div id="bar" class="bar"></div></div>
+    <div class="panel">
+      <div class="qmeta" id="categoryLabel">Vocabulary</div>
+      <div class="question" id="question">Question goes here</div>
+      <div class="answers" id="answers"></div>
+      <div id="feedback" class="feedback"></div>
+      <div class="quiz-footer"><button class="secondary" onclick="goHome()">← Categories</button><button id="nextBtn" class="primary" onclick="nextQuestion()" disabled>Next question →</button></div>
+    </div>
+  </section>
+  <section id="results" class="screen">
+    <div class="panel result">
+      <div class="qmeta">Quiz complete</div><h1 id="resultTitle">Nice work!</h1><div class="score" id="score">8/10</div><p class="subtitle" id="resultMessage"></p>
+      <div class="row"><button class="primary" onclick="retryQuiz()">↻ Try again</button><button class="secondary" onclick="goHome()">Choose another mode</button></div>
+      <div class="review" id="review"></div>
+    </div>
+  </section>
+</div>
+<script>
+const questions = [
+{c:'vocab',term:'nationalism',q:'What does nationalism mean?',a:['Love and loyalty to your country','Building armed forces for war','Expanding power by taking territory','Avoiding involvement in foreign conflict'],correct:0,why:'Nationalism means love and loyalty to your country.'},
+{c:'vocab',term:'militarism',q:'What is militarism?',a:['Stopping supplies from reaching a country','Building armed forces for war','Giving up a position','A military submarine'],correct:1,why:'Militarism is building armed forces for war.'},
+{c:'vocab',term:'imperialism',q:'What does imperialism mean?',a:['Fighting from defensive ditches','Love of country','Expanding power by taking territory','A pause in fighting'],correct:2,why:'Imperialism means expanding power by taking territory.'},
+{c:'vocab',term:'mobilize',q:'To mobilize means to…',a:['Prepare troops and supplies for war','Leave a throne','Make a peace agreement','Fight in airplane battles'],correct:0,why:'To mobilize is to prepare troops and supplies for war.'},
+{c:'vocab',term:'stalemate',q:'What is a stalemate?',a:['A surprise attack','When neither side can advance','A military alliance','A submarine attack'],correct:1,why:'A stalemate is when neither side can advance.'},
+{c:'vocab',term:'isolationist',q:'An isolationist favors…',a:['Taking over more territory','Entering every foreign conflict','Avoiding involvement in foreign conflicts','Using poison gas'],correct:2,why:'An isolationist avoids involvement in foreign conflicts.'},
+{c:'vocab',term:'trench warfare',q:'What is trench warfare?',a:['Fighting from long defensive ditches','Fighting only at sea','Fighting between airplane pilots','A blockade of a port'],correct:0,why:'Trench warfare involves fighting from long defensive ditches.'},
+{c:'vocab',term:'No Man’s Land',q:'What was No Man’s Land?',a:['A country that stayed neutral','The area between opposing trenches','A German submarine','A training camp'],correct:1,why:'No Man’s Land was the ground between opposing trenches.'},
+{c:'vocab',term:'trench foot',q:'Trench foot was an injury caused by…',a:['Poison gas','Machine guns','Cold, wet conditions','Airplane crashes'],correct:2,why:'The study guide describes trench foot as a foot injury caused by cold, wet conditions.'},
+{c:'vocab',term:'dogfights',q:'In WWI, “dogfights” were…',a:['Airplane battles between pilots','Fights in trenches','Submarine battles','Disputes between allies'],correct:0,why:'Dogfights were airplane battles between pilots.'},
+{c:'vocab',term:'blockade',q:'What is a blockade?',a:['Preparing troops for war','Stopping supplies from reaching a country','A message to another country','A defensive ditch'],correct:1,why:'A blockade stops supplies from reaching a country.'},
+{c:'vocab',term:'U-Boat',q:'What was a U-Boat?',a:['A British airplane','A Russian tank','A German military submarine','A type of trench'],correct:2,why:'A U-Boat was a German military submarine.'},
+{c:'vocab',term:'Lusitania',q:'Why is the Lusitania mentioned in the WWI study guide?',a:['It was a British ship torpedoed by a U-Boat','It was a peace plan','It was a German telegram','It was a trench weapon'],correct:0,why:'The guide identifies the Lusitania as a British ship torpedoed by a U-Boat.'},
+{c:'vocab',term:'Zimmermann Telegram',q:'What was the Zimmermann Telegram?',a:['A Russian surrender note','A German message urging Mexico to fight the United States','A British blockade order','Wilson’s peace plan'],correct:1,why:'It was a German message urging Mexico to fight the United States.'},
+{c:'vocab',term:'abdicate',q:'To abdicate means to…',a:['Join an alliance','Prepare for war','Give up a position or throne','Stop supplies from arriving'],correct:2,why:'Abdicate means giving up a position, such as a throne.'},
+{c:'people',q:'Which U.S. president initially tried to keep America neutral?',a:['Vladimir Lenin','Woodrow Wilson','Czar Nicholas II','Arthur Zimmermann'],correct:1,why:'Woodrow Wilson initially tried to keep the United States neutral.'},
+{c:'people',q:'Who was the Austro-Hungarian heir whose assassination helped start WWI?',a:['Franz Ferdinand','Gavrilo Princip','Woodrow Wilson','Vladimir Lenin'],correct:0,why:'Archduke Franz Ferdinand was assassinated in 1914.'},
+{c:'people',q:'Who assassinated Franz Ferdinand?',a:['Arthur Zimmermann','Czar Nicholas II','Gavrilo Princip','Woodrow Wilson'],correct:2,why:'Gavrilo Princip was the Serbian nationalist who assassinated Franz Ferdinand.'},
+{c:'people',q:'Who was associated with the German message sent to Mexico?',a:['Franz Ferdinand','Arthur Zimmermann','Vladimir Lenin','Woodrow Wilson'],correct:1,why:'Arthur Zimmermann was the German official associated with the telegram.'},
+{c:'people',q:'Who was Russia’s last czar, who abdicated in 1917?',a:['Czar Nicholas II','Vladimir Lenin','Franz Ferdinand','Gavrilo Princip'],correct:0,why:'Czar Nicholas II abdicated in 1917.'},
+{c:'people',q:'Who was the Bolshevik leader who took power in Russia in 1917?',a:['Woodrow Wilson','Arthur Zimmermann','Czar Nicholas II','Vladimir Lenin'],correct:3,why:'Vladimir Lenin was the Bolshevik leader who took power in 1917.'},
+{c:'countries',q:'Which group included Britain, France, Russia, Italy, and the United States?',a:['Central Powers','Allied Powers','Neutral Powers','Bolsheviks'],correct:1,why:'These countries are listed as Allied Powers in the study guide.'},
+{c:'countries',q:'Which country was part of the Central Powers?',a:['United States','France','Germany','Italy'],correct:2,why:'Germany was one of the Central Powers.'},
+{c:'countries',q:'Which list contains only Central Powers named in the study guide?',a:['Britain, France, Russia','Germany, Austria-Hungary, Ottoman Empire, Bulgaria','France, Italy, United States','Russia, Serbia, Britain'],correct:1,why:'The guide lists Germany, Austria-Hungary, the Ottoman Empire, and Bulgaria.'},
+{c:'countries',q:'Which country was listed among the Allied Powers?',a:['Bulgaria','Ottoman Empire','Austria-Hungary','Italy'],correct:3,why:'Italy is listed among the Allied Powers in this guide.'},
+{c:'causes',q:'What was the immediate spark that set off WWI according to the guide?',a:['The assassination of Archduke Franz Ferdinand','The fall of the Berlin Wall','The attack on Pearl Harbor','The Russian Revolution alone'],correct:0,why:'The guide identifies Franz Ferdinand’s assassination by Gavrilo Princip as the immediate cause.'},
+{c:'causes',q:'Which country first declared war at the beginning of the conflict, according to the guide?',a:['United States','Austria-Hungary','Britain','Russia'],correct:1,why:'The study guide says Austria-Hungary declared war on Serbia.'},
+{c:'causes',q:'How did European alliances help the war spread?',a:['They ended all fighting immediately','They kept every country neutral','Alliances pulled countries’ allies into the conflict','They stopped countries from mobilizing'],correct:2,why:'Alliance agreements pulled each country’s allies into the conflict.'},
+{c:'war',q:'Why did trench warfare and stalemate make WWI last longer?',a:['Trenches made attacks deadly, so neither side gained much ground','Both sides had no weapons','All countries left the war immediately','The fighting took place only at sea'],correct:0,why:'Trenches made attacks deadly and the front stalled, so the war took longer.'},
+{c:'war',q:'Which technologies were used in WWI, according to the study guide?',a:['Smartphones and satellites','Machine guns, tanks, airplanes, and poison gas','Nuclear missiles and drones','Only swords and bows'],correct:1,why:'The guide names machine guns, tanks, airplanes, and poison gas.'},
+{c:'us',q:'Why did Wilson’s “He kept us out of War” campaign become confusing?',a:['He had promised neutrality, but the Zimmermann Telegram pushed the U.S. toward war','He wanted the U.S. to join the Central Powers','The war had already ended','He had promised to abdicate'],correct:0,why:'The guide says Wilson promised neutrality, while the Zimmermann Telegram pushed the U.S. toward war.'},
+{c:'us',q:'What was Wilson’s “Peace without Victory” plan?',a:['Punish the defeated side harshly','Continue the war until one side surrendered completely','Seek peace through mediation without humiliating or punishing a defeated side','Join the Central Powers'],correct:2,why:'He wanted peace through mediation without a defeated side being punished or humiliated.'},
+{c:'us',q:'What two things helped draw the United States into WWI?',a:['Trench foot and dogfights','The fall of France and the Berlin Wall','The Lusitania and the Russian czar alone','Germany’s unrestricted submarine warfare and the Zimmermann Telegram'],correct:3,why:'The guide names Germany’s unrestricted submarine warfare and the Zimmermann Telegram.'},
+{c:'us',q:'How did the czar stepping down in Russia help Wilson’s decision?',a:['It made Russia more democratic and eased concerns about fighting alongside the Allies','It made Russia join the Central Powers','It ended all submarine warfare','It meant the U.S. had to abdicate'],correct:0,why:'The guide says Russia became more democratic, easing concerns about fighting alongside the Allies.'}
+];
+const labels={vocab:'Vocabulary',people:'Important people',countries:'Countries & alliances',causes:'Causes of the war',war:'War & technology',us:'United States enters',all:'Everything · mixed'};
+let active=[],idx=0,correct=0,streak=0,bestStreak=0,answered=false,missed=[],mode='all',shortMode=false,lastChoice=-1;
+function shuffle(arr){let a=arr.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function startQuiz(which,short=false){mode=which;shortMode=short;active=shuffle(questions.filter(q=>which==='all'||q.c===which));if(short)active=active.slice(0,10);idx=0;correct=0;streak=0;bestStreak=0;missed=[];show('quiz');renderQuestion()}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function renderQuestion(){answered=false;lastChoice=-1;const q=active[idx];document.getElementById('count').textContent=`${idx+1} / ${active.length}`;document.getElementById('correctCount').textContent=correct;document.getElementById('streak').textContent=streak+' 🔥';document.getElementById('bar').style.width=(idx/active.length*100)+'%';document.getElementById('categoryLabel').textContent=labels[q.c];document.getElementById('question').textContent=q.q;document.getElementById('feedback').className='feedback';document.getElementById('feedback').textContent='';document.getElementById('nextBtn').disabled=true;document.getElementById('nextBtn').textContent=idx===active.length-1?'See results →':'Next question →';const box=document.getElementById('answers');box.innerHTML='';q.a.forEach((answer,i)=>{const b=document.createElement('button');b.className='answer';b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span></span>`;b.children[1].textContent=answer;b.onclick=()=>choose(i);box.appendChild(b)})}
+function choose(choice){if(answered)return;answered=true;lastChoice=choice;const q=active[idx],buttons=[...document.querySelectorAll('.answer')];buttons.forEach((b,i)=>{b.disabled=true;if(i===q.correct)b.classList.add('correct');if(i===choice&&choice!==q.correct)b.classList.add('wrong')});const fb=document.getElementById('feedback');fb.classList.add('show');if(choice===q.correct){correct++;streak++;bestStreak=Math.max(bestStreak,streak);fb.classList.add('good');fb.textContent='✓ Correct! '+q.why}else{streak=0;fb.classList.add('bad');fb.textContent='Not quite. '+q.why;missed.push({q:q.q,chosen:q.a[choice],correct:q.a[q.correct],why:q.why})}document.getElementById('correctCount').textContent=correct;document.getElementById('streak').textContent=streak+' 🔥';document.getElementById('nextBtn').disabled=false}
+function nextQuestion(){if(!answered)return;idx++;if(idx>=active.length){showResults();return}renderQuestion()}
+function showResults(){show('results');document.getElementById('bar').style.width='100%';const pct=Math.round(correct/active.length*100);document.getElementById('score').textContent=`${correct}/${active.length}`;document.getElementById('resultTitle').textContent=pct===100?'Perfect score! 🏆':pct>=80?'Great work! 🎉':pct>=60?'You’re getting there! 💪':'Keep practicing! 📘';document.getElementById('resultMessage').textContent=`You got ${pct}% correct and your best streak was ${bestStreak}. ${pct>=80?'Review the missed questions to lock it in.':'Try another round and focus on the explanations after each answer.'}`;const r=document.getElementById('review');r.innerHTML='';if(!missed.length){r.innerHTML='<h2>Flawless round</h2><p class="muted">You didn’t miss any questions. Try another category to keep practicing.</p>';return}r.innerHTML='<h2>Review missed questions</h2>';missed.forEach(m=>{const d=document.createElement('div');d.className='review-item';const q=document.createElement('b');q.textContent=m.q;const yours=document.createElement('div');yours.className='tiny muted';yours.textContent='Your answer: '+m.chosen;const ans=document.createElement('div');ans.textContent='Correct answer: '+m.correct;const why=document.createElement('div');why.className='tiny muted';why.textContent=m.why;d.append(q,yours,ans,why);r.appendChild(d)})}
+function retryQuiz(){startQuiz(mode,shortMode)}
+function goHome(){show('home')}
+</script>
+</body>
+</html>
